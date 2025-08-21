@@ -33,4 +33,6 @@ public interface DeveloperService {
     List<Developer> getAllDeveloper();
 
     ByteArrayInputStream databaseToExcel(Long adminId);
+
+    List<Developer> getDeveloperByAge(int age);
 }

@@ -178,7 +178,14 @@ public class DeveloperServiceImpl implements DeveloperService {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public List<Developer> getDeveloperByAge(int age) {
+        List<Developer> developerByAge =  developerRepository.findByAge(age);
+        return developerByAge;
+
     }
+}
 
 
 

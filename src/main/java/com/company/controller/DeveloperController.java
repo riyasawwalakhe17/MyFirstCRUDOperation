@@ -114,4 +114,9 @@ public class DeveloperController {
         }
 
     }
+    @GetMapping("/byAge/{age}")
+    public ResponseEntity<List<Developer>> getDeveloperbyAge(@PathVariable("age")int age){
+        List<Developer> developerList=developerService.getDeveloperByAge(age);
+        return new ResponseEntity<>(developerList, HttpStatus.OK);
+    }
 }
