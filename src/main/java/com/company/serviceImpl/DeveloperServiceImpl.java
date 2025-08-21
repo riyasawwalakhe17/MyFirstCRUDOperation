@@ -2,6 +2,7 @@ package com.company.serviceImpl;
 
 import com.company.entity.Developer;
 
+import com.company.exception.DeveloperNotFoundException;
 import com.company.helper.*;
 import com.company.repository.AdminRepository;
 import com.company.repository.DeveloperRepository;
@@ -64,7 +65,8 @@ public class DeveloperServiceImpl implements DeveloperService {
     @Override
     public Developer getDeveloperById( int id) {
         Developer developer = developerRepository.findById(id)
-                .orElseThrow(()->new NullPointerException("Developer with id is not found"+id));
+                .orElseThrow(()->new DeveloperNotFoundException("Developer with id is not found"+id));
+
         return developer;
     }
 
