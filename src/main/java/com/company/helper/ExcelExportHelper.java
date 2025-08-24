@@ -54,13 +54,13 @@ public class ExcelExportHelper {
                     rowIndex++;
 
                     dataRow.createCell(0).setCellValue(d.getId());
-                    dataRow.createCell(1).setCellValue(d.getFName());
-                    dataRow.createCell(2).setCellValue(d.getLName());
+                    dataRow.createCell(1).setCellValue(d.getfName());
+                    dataRow.createCell(2).setCellValue(d.getlName());
                     dataRow.createCell(3).setCellValue(d.getAge());
                     dataRow.createCell(4).setCellValue(d.getCity());
                     dataRow.createCell(5).setCellValue(d.getGender());
                     dataRow.createCell(6).setCellValue(d.getSalary());
-                    dataRow.createCell(7).setCellValue(d.getYOB());
+                    dataRow.createCell(7).setCellValue(d.getyOB());
                     dataRow.createCell(8).setCellValue(d.getDeveloperId());
                 }
                 // to auto-size column

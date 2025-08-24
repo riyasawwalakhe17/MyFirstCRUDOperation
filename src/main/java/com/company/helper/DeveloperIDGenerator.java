@@ -17,9 +17,9 @@ public class DeveloperIDGenerator {
 
     public static String generateDeveloperId(Developer developer){
 
-        String fname = developer.getFName();
-        String lname = developer.getLName();
-        int yob = developer.getYOB();
+        String fname = developer.getfName();
+        String lname = developer.getlName();
+        int yob = developer.getyOB();
 
         //For getting first letter last name
         Character a = lname.charAt(0);

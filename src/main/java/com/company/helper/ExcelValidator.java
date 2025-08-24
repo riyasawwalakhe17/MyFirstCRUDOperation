@@ -11,10 +11,10 @@ public class ExcelValidator {
     public static List<String> validateDeveloperData(Developer dev) {
         List<String> errors = new ArrayList<>();
 
-        if (dev.getFName() == null || dev.getFName().trim().isEmpty()) {
+        if (dev.getfName() == null || dev.getfName().trim().isEmpty()) {
             errors.add("First name is required.");
         }
-        if (dev.getLName() == null || dev.getLName().trim().isEmpty()) {
+        if (dev.getlName() == null || dev.getlName().trim().isEmpty()) {
             errors.add("Last name is required.");
         }
         if (dev.getAge() <= 0 || dev.getAge() > 120) {
@@ -30,7 +30,7 @@ public class ExcelValidator {
         if (dev.getSalary() <= 0) {
             errors.add("Salary must be greater than 0.");
         }
-        if (dev.getYOB() < 1900 || dev.getYOB() > java.time.Year.now().getValue()) {
+        if (dev.getyOB() < 1900 || dev.getyOB() > java.time.Year.now().getValue()) {
             errors.add("Year of birth must be valid.");
         }
 

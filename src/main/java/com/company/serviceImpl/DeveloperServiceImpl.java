@@ -21,7 +21,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.aspectj.apache.bcel.classfile.Module;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
@@ -83,8 +85,8 @@ public class DeveloperServiceImpl implements DeveloperService {
         System.err.println("Old Developer from db"+developer);
         System.err.println("Developer object with value to be updated"+newData);
 
-        developer.setFName(newData.getFName());
-        developer.setLName(newData.getLName());
+        developer.setfName(newData.getfName());
+        developer.setlName(newData.getlName());
         developer.setAge(newData.getAge());
         developer.setCity(newData.getCity());
         developer.setSalary(newData.getSalary());
@@ -126,7 +128,7 @@ public class DeveloperServiceImpl implements DeveloperService {
                 //for validations
                 List<String> errors = ExcelValidator.validateDeveloperData(dev);
                 if (!errors.isEmpty()) {
-                    allErrors.add("Row for " + dev.getFName() + " " + dev.getLName() + ": " + errors);
+                    allErrors.add("Row for " + dev.getfName() + " " + dev.getlName() + ": " + errors);
                     continue; // skip invalid records
                 }
 
@@ -184,6 +186,13 @@ public class DeveloperServiceImpl implements DeveloperService {
         List<Developer> developerByAge =  developerRepository.findByAge(age);
         return developerByAge;
 
+    }
+
+    @Scheduled(cron = "0 0 0 * * ?")
+    @Transactional
+    public void updateAgeForBirthdays() {
+        developerRepository.updateAgeForBirthdayDevelopers();
+        System.out.println("🎂 Birthday job executed: Age updated!");
     }
 }
 

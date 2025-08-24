@@ -56,13 +56,13 @@ public static boolean checkExcelFormat(MultipartFile file) {
                 Developer dev = new Developer();
 
                 dev.setId(getIntFromCell(currentRow.getCell(0)));
-                dev.setFName(getStringFromCell(currentRow.getCell(1)));
-                dev.setLName(getStringFromCell(currentRow.getCell(2)));
+                dev.setfName(getStringFromCell(currentRow.getCell(1)));
+                dev.setlName(getStringFromCell(currentRow.getCell(2)));
                 dev.setAge(getIntFromCell(currentRow.getCell(3)));
                 dev.setGender(getStringFromCell(currentRow.getCell(4)));
                 dev.setCity(getStringFromCell(currentRow.getCell(5)));
                 dev.setSalary(getLongFromCell(currentRow.getCell(6)));
-                dev.setYOB(getIntFromCell(currentRow.getCell(7)));        //  YOB column fixed
+                dev.setyOB(getIntFromCell(currentRow.getCell(7)));        //  YOB column fixed
                 dev.setDeveloperId(getStringFromCell(currentRow.getCell(8))); // Developer ID column fixed
 
                 developerList.add(dev);

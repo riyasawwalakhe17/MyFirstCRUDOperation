@@ -27,7 +27,7 @@ public class DeveloperController {
     public ResponseEntity<String> addDeveloper(@RequestBody Developer developer){
         System.err.println(developer);
         developerService.saveDeveloper(developer);
-        return new ResponseEntity<>("Hiii.... " +developer.getFName()+" You have successfully login And your developer Id is: "+developer.getDeveloperId(), HttpStatus.CREATED);
+        return new ResponseEntity<>("Hiii.... " +developer.getfName()+" You have successfully login And your developer Id is: "+developer.getDeveloperId(), HttpStatus.CREATED);
     }
 
     @GetMapping("/getAllData")

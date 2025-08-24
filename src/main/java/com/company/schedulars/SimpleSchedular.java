@@ -3,7 +3,7 @@ package com.company.schedulars;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class SimpleSchedular {
 
     @Scheduled(fixedDelay = 5000)
